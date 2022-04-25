@@ -1,0 +1,7 @@
+@function ternary-condition($condition, $trueValue, $falseValue) {
+  @if not ($condition == null) {
+    @return $trueValue;
+  } @else {
+    @return $falseValue;
+  }
+}

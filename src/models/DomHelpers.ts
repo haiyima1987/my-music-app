@@ -1,0 +1,4 @@
+export const RESULT_TYPES = {
+  NOT_START: 'NOT_START',
+  NO_RESULT: 'NO_RESULT'
+}

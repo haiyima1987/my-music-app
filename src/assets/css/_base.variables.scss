@@ -1,0 +1,48 @@
+:root {
+    --main-color: #1ED760;
+    --grey-dark-2: #283251;
+    --grey-dark-3: #383F4F;
+    --grey-dark-36: #363F50;
+    --grey-dark-3-opaque: rgba(56, 63, 79, 0.2);
+    --grey-dark-4: #4A4B4C;
+    --grey-medium-6: #606572; /* grey-dark-3 opacity 0.8 */
+    --grey-medium-7: #76787A;
+    --grey-medium-9: #9E969E; /* grey-dark-3 opacity 0.5 */
+    --grey-pale-a: #A5A6A8;
+    --grey-pale-b: #B6B7B8;
+    --grey-pale-c: #C6C7C8;
+    --grey-pale-cc: #CCCFD3;
+    --grey-pale-ce: #CED1D6;
+    --grey-pale-d: #D9DBDD;
+    --grey-pale-d7: #D7D9DC; /* grey-dark-3 opacity 0.2 */
+    --grey-pale-e: #E7E9EC;
+    --grey-pale-e1: #E1E3E6; /* shadow: rgba(33, 43, 66, 0.13) */
+    --grey-pale-f: #F4F6F8;
+    --grey-pale-bg: #F4F6F8;
+    --grey-opaque-4: rgba(32, 35, 38, 0.4);
+    --grey-opaque-6: rgba(64, 69, 78, 0.6);
+    /* starting point for XS */
+    --screen-xs-320: 320px;
+    --screen-xs-360: 360px;
+    --screen-xs-360-minus: 359px;
+    /* starting point for SM */
+    --screen-sm-576: 576px;
+    --screen-sm-minus-575: 575px;
+    /* starting point for MD */
+    --screen-md-768: 768px;
+    --screen-md-minus-767: 767px;
+    /* starting point for LG */
+    --screen-lg-992: 992px;
+    --screen-lg-minus-991: 991px;
+    --screen-lg-1024: 1024px;
+    --screen-lg-minus-1023: 1023px;
+    /* starting point for XL */
+    --screen-xl-1200: 1200px;
+    --screen-xl-minus-1199: 1199px;
+    /* starting point for XXL */
+    --screen-xxl-1600: 1600px;
+    --screen-xxl-minus-1599: 1599px;
+    /* starting point for TV */
+    --screen-tv-2560: 2560px;
+    --screen-tv-minus-2599: 2599px;
+}

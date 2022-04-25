@@ -1,0 +1,130 @@
+@import "./base.functions";
+
+/* layout */
+@mixin border-box() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* positioning */
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin position-equal($position, $value, $top: null, $right: null, $bottom: null, $left: null, $elevation: 0) {
+  position: $position;
+  top: ternary-condition($top, $top, $value);
+  right: ternary-condition($right, $right, $value);
+  bottom: ternary-condition($bottom, $bottom, $value);
+  left: ternary-condition($left, $left, $value);
+  @if not ($elevation == 0) {
+    z-index: $elevation;
+  }
+}
+
+/* transforming styles */
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  -o-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin rotate($value) {
+  @include transform(rotate($value));
+}
+
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+@mixin translate3d($x, $y, $z) {
+  @include transform(translate3d($x, $y, $z));
+}
+
+@mixin scale($x, $y) {
+  @include transform(scale($x, $y));
+}
+
+/* center elements with absolute and fixed positioning */
+@mixin center-element($horizontal: false, $vertical: false) {
+  @if $horizontal == false and $vertical == false {
+    @include position(absolute, $top: 50%, $left: 50%);
+    @include translate3d(-50%, -50%, 0);
+  } @else if $horizontal == true and $vertical == false {
+    @include position(absolute, $left: 50%);
+    @include translate3d(-50%, 0, 0);
+  } @else if $horizontal == false and $vertical == true {
+    @include position(absolute, $top: 50%);
+    @include translate3d(0, -50%, 0);
+  }
+}
+
+@mixin center-element-fixed($horizontal: false, $vertical: false) {
+  @if $horizontal == false and $vertical == false {
+    @include position(fixed, $top: 50%, $left: 50%);
+    @include translate3d(-50%, -50%, 0);
+  } @else if $horizontal == true and $vertical == false {
+    @include position(fixed, $left: 50%);
+    @include translate3d(-50%, 0, 0);
+  } @else if $horizontal == false and $vertical == true {
+    @include position(fixed, $top: 50%);
+    @include translate3d(0, -50%, 0);
+  }
+}
+
+/* border radius */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin border-radius-separate($topLeft, $topRight, $btmRight, $btmLeft) {
+  -webkit-border-radius: $topLeft $topRight $btmRight $btmLeft;
+  -moz-border-radius: $topLeft $topRight $btmRight $btmLeft;
+  border-radius: $topLeft $topRight $btmRight $btmLeft;
+}
+
+@mixin border-radius-disable() {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+/* placeholder */
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content
+  }
+  &:-moz-placeholder {
+    @content
+  }
+  &::-moz-placeholder {
+    @content
+  }
+  &:-ms-input-placeholder {
+    @content
+  }
+}
+
+/* truncate text to a number of lines */
+@mixin break-line($line-number) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line-number;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  text-overflow: clip;
+  /* autoprefixer: off */
+}
+
+@mixin line-clamp($line: 3) {
+  overflow: hidden;
+  @include break-line($line)
+}

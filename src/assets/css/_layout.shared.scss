@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900');
+@import "./base.variables";
+@import "./base.mixins";
+
+*, *::before, *::after {
+  @include border-box();
+}
+
+html {
+  font-size: 8px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--grey-dark-3);
+  font-size: 1.6rem;
+  font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/** Text **/
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--grey-dark-3);
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--grey-dark-3);
+}
+
+li {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--grey-dark-3);
+}
+
+/** Layout **/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: 100%;
+}
+
+/** Buttons **/
+a, button {
+  font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  color: var(--grey-dark-3);
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/** scrollbar **/
+* {
+  scrollbar-color: var(--main-color) var(--grey-pale-d);
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--grey-pale-d);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    @include border-radius(0.4rem);
+  }
+}
+
+/* The button with main color background and white text */
+.button-main {
+  padding: 0 1.5rem;
+  background: var(--main-color);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  height: 4rem;
+  line-height: 3.6rem;
+  border: 0.2rem solid var(--main-color);
+  @include border-radius(0.5rem);
+
+  &:hover {
+    color: white;
+  }
+}
+
+/* UX element styles*/
+.spinner {
+  height: 3rem;
+  width: 3rem;
+  @include center-element-fixed();
+  z-index: 500;
+}
+
+.fa-spinner {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  color: var(--main-color);
+}
+
+/* Form elements */
+$backgroundColor: white;
+$borderColor: var(--grey-pale-a);
+$titleColor: var(--grey-dark-3);
+$textColor: var(--grey-dark-3);
+$placeholderColor: var(--grey-pale-a);
+$mainColor: var(--main-color);
+$indicatorColor: var(--main-color);
+
+input, select, textarea {
+  width: 100%;
+  font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;
+
+  @include placeholder {
+    color: $placeholderColor;
+    font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+label {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 0.8rem;
+}
+
+.form-input-title {
+  margin: 1.6rem 0 0.8rem 0;
+  padding-left: 1.5rem;
+  text-align: left;
+  color: $titleColor;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.2rem;
+  text-transform: uppercase;
+}
+
+.form-input {
+  padding: 0 1.5rem;
+  height: 4rem;
+  border: 0.1rem solid $borderColor;
+  @include border-radius(0.5rem);
+  background-color: $backgroundColor;
+  font-size: 1.6rem;
+  color: $textColor;
+}
+
+/* table styling */
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+}
+
+.head-custom-table {
+  font-weight: bold;
+  box-shadow: 0 0 0.8rem rgba(50, 64, 71, 0.2);
+  @include border-radius(0.5rem);
+}
+
+.row-custom-table {
+  vertical-align: middle;
+  box-shadow: 0 0 0.8rem rgba(50, 64, 71, 0.2);
+  @include border-radius(0.5rem);
+  transition: transform 300ms ease-in;
+
+  &:hover {
+    .cell-custom-table {
+      background-color: var(--grey-dark-2);
+      color: white;
+    }
+  }
+}
+
+.cell-custom-table {
+  padding: 1.6rem 2rem;
+  background-color: white;
+
+  &:nth-child(1) {
+    @include border-radius-separate(0.5rem, 0, 0, 0.5rem);
+  }
+
+  &:last-child {
+    @include border-radius-separate(0, 0.5rem, 0.5rem, 0);
+  }
+}
+
+/** Scroller **/
+.scroll-controller-wrapper {
+  @include position(fixed, $top: 8rem, $right: 0, $bottom:0, $left: 0);
+  overflow: auto;
+}
+
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  :root {
+    --width-container: 54rem;
+  }
+  /** Layout **/
+  .container {
+    max-width: var(--width-container);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --width-container: 72rem;
+  }
+  /** Layout **/
+  .container {
+    max-width: var(--width-container);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  :root {
+    --width-container: 96rem;
+  }
+  /** Layout **/
+  .container {
+    max-width: var(--width-container);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  :root {
+    --width-container: 80%;
+  }
+  /** Layout **/
+  .container {
+    max-width: var(--width-container);
+  }
+}

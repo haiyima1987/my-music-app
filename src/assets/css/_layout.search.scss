@@ -1,0 +1,322 @@
+@import "./base.mixins";
+
+/** Login panel **/
+.panel-login-overlay {
+  @include position-equal(fixed, 0);
+  background-color: black;
+  opacity: 1;
+  transition: all 400ms ease-in;
+  z-index: 200;
+}
+
+.panel-login {
+  padding: 4rem;
+  width: 90%;
+  background-color: white;
+  @include border-radius(2rem);
+  @include position(absolute, $top: 120%, $left: 50%);
+  @include translate(-50%, -50%);
+  text-align: center;
+  transition: all 400ms ease-in;
+  box-shadow: 0 0 4rem rgba(255, 255, 255, 0.6);
+}
+
+.icon-logo-login-panel {
+  height: 12rem;
+  max-width: 100%;
+}
+
+.subtitle-login-panel {
+  color: var(--grey-medium-9);
+}
+
+.button-login-panel {
+  margin: 4rem 0 0;
+  padding: 0 4rem;
+  height: 8rem;
+  font-size: 4.8rem;
+  @include border-radius(4rem);
+}
+
+/** Search layout **/
+.search-content-wrapper {
+  padding: 4rem 0;
+}
+
+/** Search and select field **/
+.search-field-wrapper {
+  margin: 0 0 2rem;
+}
+
+.input-search-field {
+  border: 0.2rem solid var(--grey-pale-c);
+}
+
+.select-group-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.select-field-wrapper {
+  padding: 0 2rem 0 0;
+  flex-grow: 1;
+}
+
+.type-select-box {
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  max-width: 20rem;
+}
+
+.type-select-shared {
+  padding: 0 1rem;
+  height: 4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--grey-medium-9);
+}
+
+.type-select-result {
+  @extend .type-select-shared;
+  position: relative;
+  border: 0.2rem solid var(--grey-pale-c);
+  @include border-radius(0.5rem);
+}
+
+.icon-type-select {
+  @include position(absolute, $top: 50%, $right: 1rem);
+  @include translate(0, -50%);
+  color: var(--grey-pale-c);
+}
+
+.type-select-list-wrapper {
+  @include position(absolute, $top: 4.4rem, $right: 0, $left: 0);
+  height: 0;
+  overflow: hidden;
+  transition: all 100ms ease-in;
+}
+
+.type-select-list-box {
+  border: 0.2rem solid var(--grey-pale-c);
+  @include border-radius(0.5rem);
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--grey-medium-9);
+  background: white;
+}
+
+.type-select-list-item {
+  @extend .type-select-shared;
+  border-bottom: 0.2rem solid var(--grey-pale-c);
+
+  &.active {
+    font-weight: bold;
+    background-color: var(--grey-pale-c);
+    color: white;
+  }
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.search-field-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-search {
+  padding: 0 4rem;
+}
+
+/** Search result **/
+.search-result-wrapper {
+  margin: 4rem 0;
+}
+
+.link-list-item {
+  width: 100%;
+}
+
+/** Artist list **/
+.artist-list-wrapper {
+  margin: 0 -1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.artist-item-wrapper {
+  padding: 1rem;
+}
+
+.card-wrapper-shared {
+  padding: 2rem;
+  background-color: var(--grey-dark-2);
+  @include border-radius(0.8rem);
+  transition: transform 300ms ease-in;
+
+  &:hover {
+    background-color: var(--grey-dark-3);
+    transform: scale(1.05);
+  }
+}
+
+.artist-item-box {
+  @extend .card-wrapper-shared;
+}
+
+.artist-item-image-wrapper {
+  padding-top: 100%;
+  @include border-radius(50%);
+  overflow: hidden;
+  position: relative;
+}
+
+.image-artist-item {
+  @include center-element();
+}
+
+.artist-item-title-wrapper {
+  margin: 1rem 0;
+  font-weight: 800;
+  color: white;
+  @include line-clamp(1);
+}
+
+.artist-item-text-wrapper {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: white;
+}
+
+/** Album list **/
+.album-list-wrapper {
+  margin: 0 -1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album-item-wrapper {
+  padding: 1rem;
+}
+
+.album-item-box {
+  @extend .card-wrapper-shared;
+}
+
+.album-item-image-wrapper {
+  padding-top: 100%;
+  @include border-radius(0.5rem);
+  overflow: hidden;
+  position: relative;
+}
+
+.image-album-item {
+  height: 100%;
+  @include position(absolute, $top: 0, $left: 0);
+}
+
+.album-item-title-wrapper {
+  margin: 1rem 0;
+  font-weight: 800;
+  color: white;
+  @include line-clamp(1);
+}
+
+.album-item-text-wrapper {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: white;
+  @include line-clamp(1);
+}
+
+/** Track list **/
+.track-list-image-wrapper {
+  width: 6rem;
+  height: 6rem;
+  @include border-radius(0.5rem);
+  overflow: hidden;
+  position: relative;
+}
+
+.image-track-list {
+  width: 100%;
+  @include center-element();
+}
+
+.no-result-wrapper {
+  margin: 8rem 0;
+  text-align: center;
+}
+
+.icon-no-result {
+  font-size: 10rem;
+  color: var(--grey-medium-6);
+}
+
+.text-below-no-result {
+  color: var(--grey-medium-6);
+}
+
+.icon-play-box {
+  width: 3rem;
+  height: 3rem;
+  @include border-radius(50%);
+  display: none;
+  overflow: hidden;
+}
+
+.icon-play {
+  width: 100%;
+  height: 100%;
+}
+
+.tr-table-track-list:hover {
+  .icon-play-box {
+    display: block;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .text-duration {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .panel-login {
+    padding: 4rem 8rem;
+    width: 60%;
+  }
+
+  .field-group-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 80rem;
+  }
+
+  .search-field-wrapper {
+    margin: 0;
+    padding: 0 2rem 0 0;
+    flex-grow: 1;
+  }
+
+  .type-select-box {
+    width: 16rem;
+    max-width: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .panel-login {
+    width: auto;
+  }
+}
